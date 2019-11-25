@@ -1,0 +1,24 @@
+#项目端口和路径
+server:
+  port: 8088
+  servlet:    context-path: /bbs
+
+#Springmvc的视图解析器
+spring:       #连接数据库的基本信息  datasource:    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/imdb?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: root
+
+#映射文件所扫描的包路径
+mybatis:  type-aliases-package: com.im.pojo  mapper-locations: classpath:mapper/*.xml
+## Dubbo
+dubbo:
+  application:
+    name: dubbo-provider
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  protocol:
+    name: dubbo
+    port: 6666
+  scan:
+    basePackages: com.im
